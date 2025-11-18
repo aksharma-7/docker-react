@@ -25,4 +25,4 @@ jobs:
               run: docker build -t cygnetops/react-test -f Dockerfile.dev .
 
             - name: Run Tests
-              run: docker run -e CI=true cygnetops/react-test npm test
+              run: docker run -e CI=true cygnetops/react-test npm test -- --coverage
