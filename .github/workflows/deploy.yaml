@@ -19,3 +19,11 @@ jobs:
 
             - name: Run Tests
               run: docker run -e CI=true cygnetops/react-test npm test
+
+            - name: Debug secrets
+              run: |
+                  echo "Username length: ${#DOCKER_USERNAME}"
+                  echo "Password length: ${#DOCKER_PASSWORD}"
+              env:
+                  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+                  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
